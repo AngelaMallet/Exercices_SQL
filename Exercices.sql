@@ -98,24 +98,69 @@ ALTER TABLE clients ADD COLUMN city VARCHAR(50);
 
 
 
+/*Partie 4*/
+
+/*Exercice 1*/
+/*Dans la table languages insérez les données suivantes :
+
+JavaScript version 5
+PHP version 5.2
+PHP version 5.4
+HTML version 5.1
+JavaScript version 6
+JavaScript version 7
+JavaScript version 8
+PHP version 7
+*/
+USE webDevelopment;
+INSERT INTO languages (language,version) VALUES ('Javascript',5);
+/*DELETE FROM languages WHERE id=2; car j'avais inserer deux fois la 1er ligne*/
+/*SELECT * from languages; pour vérifier l'intérieur de ma table.*/
+INSERT INTO languages (language,version) VALUES ('PHP',5.2);
+INSERT INTO languages (language,version) VALUES ('PHP',5.4);
+INSERT INTO languages (language,version) VALUES ('HTML',5.1);
+INSERT INTO languages (language,version) VALUES ('Javascript',6);
+INSERT INTO languages (language,version) VALUES ('Javascript',7);
+INSERT INTO languages (language,version) VALUES ('Javascript',8);
+INSERT INTO languages (language,version) VALUES ('PHP',7);
 
 
 
+/*Exercice 2*/
+/*Dans la table frameworks insérez les données suivantes :
 
-/**/
-/**/
-/**/
-/**/
-/**/
+Symfony version 2.8
+Symfony version 3
+Jquery version 1.6
+Jquery version 2.10*/
+
+DESCRIBE frameworks;
+INSERT INTO frameworks (framework,version) VALUES ('Symfony',2.8);
+INSERT INTO frameworks (framework,version) VALUES ('Symfony',3);
+INSERT INTO frameworks (framework,version) VALUES ('Jquery',1.6);
+INSERT INTO frameworks (framework,version) VALUES ('Jquery',2.10);
 
 
 
+/*Partie 5 : Sélection de données*/
 
-
-
-
-
-
+/*Exercice 1	Dans la table languages, afficher toutes les données de la table.*/
+SELECT * 
+FROM languages;
+/*Exercice 2	Dans la table languages, afficher toutes les versions de PHP.*/
+SELECT * 
+FROM languages 
+WHERE language = 'PHP'; 
+/*Exercice 3	Dans la table languages, afficher toutes les versions de PHP et de JavaScript.*/
+SELECT * FROM languages WHERE language = 'PHP' OR language='JavaScript';
+/*Exercice 4	Dans la table languages, afficher toutes les lignes ayant pour id 3,5,7.*/
+SELECT * FROM languages WHERE id = 3 OR id = 5 OR id = 7;
+/*Exercice 5	Dans la table languages, afficher les deux première entrées de JavaScript.*/
+SELECT * FROM languages WHERE language = 'Javascript' LIMIT 2 OFFSET 0;
+/*Exercice 6	Dans la table languages, afficher toutes les lignes qui ne sont pas du PHP*/
+SELECT * FROM languages WHERE language NOT LIKE 'PHP';
+/*Exercice 7	Dans la table languages, afficher toutes les données par ordre alphabétique.*/
+SELECT * FROM languages ORDER BY language ASC;
 
 
 
